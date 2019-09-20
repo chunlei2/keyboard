@@ -1,0 +1,29 @@
+
+
+
+<!DOCTYPE html>
+<html>
+<body onclick="myFunction()">
+
+<p>I <strong>insist</strong> that you <strong>try</strong> selecting the <strong>strong words</strong>.</p>
+<button>Select strong words</button>
+<script>
+let button = document.querySelector('button');
+
+button.addEventListener('click', function () {
+  let selection = window.getSelection();
+  let strongs = document.getElementsByTagName('strong');
+
+  if (selection.rangeCount > 0) {
+    selection.removeAllRanges();
+  }
+
+  for (let i = 0; i < strongs.length; i++) {
+    let range = document.createRange();
+    range.selectNode(strongs[i]);
+    selection.addRange(range);
+  }
+});
+</script>
+</body>
+</html>

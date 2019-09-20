@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567171168722.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "728F3E20",
+    "lastKnownWriteTime" : 1567788156,
+    "last_content_update" : 1567788156483,
+    "path" : "C:/Users/GCE Employee/Desktop/practice js - Copy/www/message.js",
+    "project_path" : "www/message.js",
+    "properties" : {
+        "cursorPosition" : "22,36",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "js"
+}

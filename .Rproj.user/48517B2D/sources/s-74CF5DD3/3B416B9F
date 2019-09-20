@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567172005777.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "3B416B9F",
+    "lastKnownWriteTime" : 1568254762,
+    "last_content_update" : 1568254762351,
+    "path" : "C:/Users/GCE Employee/Desktop/practice js - Copy/global.R",
+    "project_path" : "global.R",
+    "properties" : {
+        "cursorPosition" : "2,16",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,25 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1567170872001.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A67F8031",
+    "lastKnownWriteTime" : 1568988921,
+    "last_content_update" : 1568988921335,
+    "path" : "C:/Users/GCE Employee/Desktop/practice js - Copy/ui.R",
+    "project_path" : "ui.R",
+    "properties" : {
+        "cursorPosition" : "10,22",
+        "scrollLine" : "0"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

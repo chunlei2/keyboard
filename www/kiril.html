@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+    <input style=" border: 2px solid #000000;
+  border-radius: 4px; width: 500px" onfocus='selectedField=this;' dir='ltr'><br>
+    <br>
+    
+    <select onchange="createTable()" style=" border: 2px solid #000000;
+  border-radius: 4px; width: 500px" id = "myList">
+               <option value = "cyrillic">Cyrillic</option>
+               <option value = "hebrew">Hebrew</option>
+               <option value = "kanji">Kanji</option>
+               <option value = "arabic">Arabic</option>
+               <option value = "greek">Greek</option>
+    </select><br>
+    <br>  
+  </head>
+  <body>
+    <script>
+    
+
+        var characters_hebrew = ['ט','ח','ז','ו','ה','ד','ט','ח','ז','ו','ה','ד','ט','ח','ז','ו','ה','ד','ט','ח','ז','ו','ה','ד','ט','ח','ז','ו','ה','ד','ט'         ,'ח','ז','ו','ה','ד'];
+        var characters_cyrillic = ['Б','В','Г','Д','Е','Ё','Б','В','Г','Д','Е','Ё','Б','В','Г','Д','Е','Ё','Б','В','Г','Д','Е','Ё','Б','В','Г','Д','Е','Ё','Б'          ,'В','Г','Д','Е','Ё'];
+         var characters_kanji = ["藤","沖","椿","鮎","咲"]
+        selected_char_set = characters_cyrillic;
+
+    
+     StartTable();
+      WriteTable(selected_char_set);
+      EndTable();
+      
+      
+   
+    
+    function setSelectionRange(input, start, end) {
+	
+	    	input.setSelectionRange(start, end);
+	
+    };
+
+    function getSelectionStart(input) {
+
+	    	return input.selectionStart;
+      	var range = document.selection.createRange();
+
+    };
+
+    function getSelectionEnd(input) {
+	
+		   return input.selectionEnd;
+	
+    };
+    
+    function WriteTable(characters){
+           for (i = 0; i < characters.length; i++) {
+               if (i % 20 === 0  ){
+                    NextRow();
+               }else{
+                   Keycap(characters[i]);
+               }
+           } 
+     }
+
+     function WriteTable2(characters){
+       let table = document.createElement('table');
+           for (i = 0; i < characters.length; i++) {
+               if (i % 20 === 0  ){
+                    table = NextRow2(table);
+               }else{
+                   table = Keycap2(characters[i],table);
+               }
+           } 
+       document.body.appendChild(table); 
+    }
+    
+      
+      function Keycap(letter) {
+            document.write('<td><div id="vienas" align="center">' +
+                            '&nbsp;<a style="text-decoration:none" href="javascript:Insert(\'' + letter + '\');"><span style="font-size:150%; color:#000000;">' + letter + '</span></a>&nbsp;' +
+                            '</div></td>');
+      }
+
+ function Keycap2(letter,table) {
+     let td = document.createElement('td');
+console.log('THIS is r:',letter);
+        td.innerHTML = '<td><div id="vienas" align="center">' +
+                            '&nbsp;<a style="text-decoration:none" href="javascript:Insert(\'' + letter + '\');"><span style="font-size:150%; color:#000000;">' + letter + '</span></a>&nbsp;' +
+                            '</div></td>';
+      table.appendChild(td);
+      return(table)
+        
+      }
+      function createTable(){
+            var e = document.querySelector("table"); 
+           document.body.removeChild(e);
+           var selection_ = document.getElementById("myList").value;
+           if (selection_=='hebrew'){
+               char_cat = characters_hebrew;
+           } else if (selection_=='cyrillic' ){
+               char_cat= characters_cyrillic;
+           } else if (selection_=='kanji'){
+               char_cat= characters_kanji;
+           }else{}
+            WriteTable2(char_cat);
+      }
+      function StartTable() {
+        document.write('<table>')
+      }
+
+      function EndTable() {
+        document.write('</tr></table>')
+      }
+
+      function NextRow() {
+        document.write('</tr><tr>')
+      }
+      
+      function NextRow2(table) {
+          let tr = document.createElement('tr');
+            tr.innerHTML = '</tr><tr>';
+            table.appendChild(tr);
+            return(table);
+      }
+
+      var selectedField = '';
+
+      function Insert(letter) {
+        var myText = selectedField.value;
+        var leftPos = getSelectionStart(selectedField);
+        var rightPos = getSelectionEnd(selectedField);
+        myText = myText.substring(0,leftPos) + letter + myText.substring(rightPos, myText.length);
+        selectedField.value = myText;
+        setSelectionRange(selectedField, leftPos+1, leftPos+1);
+        selectedField.focus();
+        //Shiny.onInputChange("chars1", myText);
+        console.log('sitas:'+myText);
+        Shiny.onInputChange("update", myText);
+      }
+    
+      
+    </script>
+  </body>
+</html>
+
